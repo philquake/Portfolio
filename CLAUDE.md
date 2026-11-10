@@ -80,11 +80,10 @@ Screenshots: desktop 1440×900 PNG, phone portrait, in `public/images/projects/<
 
 ## Status (9 Nov 2026)
 
-Done: all pages (home, about, projects with filter, five case studies, services with inquiry form, blog, contact), theme toggle, mobile nav, SEO metadata, Open Graph image, sitemap, robots, 404, two demo sites. All project screenshots. `data/site.ts` has email, LinkedIn, location ("Jamaica") and resume (`public/resume/phillip-cole-resume.pdf`, phone and email removed). About copy, case studies and budget ranges approved. All three blog posts published (the limited-budget post quotes free-tier limits from provider docs, last checked 9 Nov 2026; re-check before editing). Git repo `philquake/Portfolio` (private, `main`). Deployed on Cloudflare; live Lighthouse: performance 94 to 100, accessibility and SEO 100, best practices 96. Build, lint and tests pass.
+Done: all pages (home, about, projects with filter, five case studies, services with inquiry form, blog, contact), theme toggle, mobile nav, SEO metadata, Open Graph image, sitemap, robots, 404, two demo sites. All project screenshots. `data/site.ts` has email, LinkedIn, location ("Jamaica") and resume (`public/resume/phillip-cole-resume.pdf`, phone and email removed). About copy, case studies and budget ranges approved. All three blog posts published (the limited-budget post quotes free-tier limits from provider docs, last checked 9 Nov 2026; re-check before editing). Git repo `philquake/Portfolio` (private, `main`). Deployed on Cloudflare; live contact form tested end to end (test email arrived 10 Nov 2026); live Lighthouse: performance 94 to 100, accessibility and SEO 100, best practices 96. Build, lint and tests pass.
 
 Not done:
 
-- Confirm the test email from the live contact form reached phillipcole123@gmail.com (Resend's shared sender may only deliver to the Resend account's own email)
 - Profile photo (`profileImage` in `data/site.ts`; left blank on purpose for now)
 - Optional: custom domain; then update `NEXT_PUBLIC_SITE_URL`
 - Check Cloudflare's free allowance for image transformations
