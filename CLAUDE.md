@@ -75,7 +75,7 @@ Screenshots: desktop 1440×900 PNG, phone portrait, in `public/images/projects/<
 
 - Live at https://portfolio.phillipcole123.workers.dev (Worker `portfolio`). Cloudflare Workers Builds builds `main` on every push (build command `npm run cf:build`, deploy command `npx wrangler deploy`). Vercel was removed on 9 Nov 2026 because its Hobby plan bans commercial use and this site advertises services.
 - Adapter: `@opennextjs/cloudflare`, config in `wrangler.jsonc` and `open-next.config.ts`. The `images` binding in `wrangler.jsonc` is what makes `next/image` resize; without it images are served at full size and mobile Lighthouse drops below 90.
-- Variables (Cloudflare dashboard, Worker settings): `NEXT_PUBLIC_SITE_URL` must be a **build** variable (Next.js bakes it in), and must be unset or a real URL, never empty (an empty value breaks `new URL()` in `app/layout.tsx`). `CONTACT_TO_EMAIL` and `RESEND_API_KEY` are runtime variables; the key is a secret. Without them the contact form answers 503 and shows its fallback.
+- Variables: repo-managed, do not edit them in the Cloudflare dashboard (a dashboard edit or delete makes a version that drops them, and the contact form returns 503). `NEXT_PUBLIC_SITE_URL` is in `.env.production` (build time, public value; never empty). `CONTACT_TO_EMAIL` is in `wrangler.jsonc` `vars`. `RESEND_API_KEY` is a Worker **secret** (survives deploys): set it with `npx wrangler secret put RESEND_API_KEY --name portfolio` in a terminal and paste the value at the hidden prompt; check names with `npx wrangler secret list --name portfolio`. Without the key or email the contact form answers 503 and shows its fallback.
 - Local checks: `npm run cf:build`, then `npx wrangler dev --port 8787` to test on the Workers runtime (needs `workerd`; run `node node_modules/workerd/install.js` once if npm blocked its install script).
 
 ## Status (9 Nov 2026)
@@ -84,8 +84,7 @@ Done: all pages (home, about, projects with filter, five case studies, services 
 
 Not done:
 
-- `NEXT_PUBLIC_SITE_URL` (build variable in Cloudflare): until set, the live sitemap lists `http://localhost:3000` URLs
-- `CONTACT_TO_EMAIL` (phillipcole123@gmail.com) and `RESEND_API_KEY` in Cloudflare, then test the live contact form
+- Confirm the test email from the live contact form reached phillipcole123@gmail.com (Resend's shared sender may only deliver to the Resend account's own email)
 - Profile photo (`profileImage` in `data/site.ts`; left blank on purpose for now)
 - Optional: custom domain; then update `NEXT_PUBLIC_SITE_URL`
 - Check Cloudflare's free allowance for image transformations
