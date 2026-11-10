@@ -74,11 +74,10 @@ Screenshots: desktop 1440×900 PNG, phone portrait, in `public/images/projects/<
 
 Done: all pages (home, about, projects with filter, five case studies, services with inquiry form, blog, contact), theme toggle, mobile nav, SEO metadata, Open Graph image, sitemap, robots, 404, two demo sites. All project screenshots. `data/site.ts` has email, LinkedIn, location ("Jamaica") and resume (`public/resume/phillip-cole-resume.pdf`, phone and email removed). About copy, case studies and budget ranges approved. Visual check (desktop/phone, both themes) and Lighthouse (all 96+) done. Git repo `philquake/Portfolio` (private, `main`). Live on Vercel (project `portfolio`, scope `cole-world`, git auto-deploy on push): https://portfolio-gilt-kappa-1e5wjyy1gv.vercel.app. Env vars set in Vercel: `NEXT_PUBLIC_SITE_URL`, `CONTACT_TO_EMAIL`. Build, lint and tests pass.
 
-Blog: Penny and Django platform posts are published (approved by Phillip, 9 Nov 2026). The limited-budget post is still an outline with `draft: true` (Draft label, noindex, not in sitemap).
+Blog: all three posts are published (approved by Phillip, 9 Nov 2026). The limited-budget post quotes free-tier limits from provider docs, last checked 9 Nov 2026; re-check them before editing.
 
 Not done:
 
 - `RESEND_API_KEY` in Vercel (add with `vercel env add RESEND_API_KEY production`), then redeploy and test the live contact form
 - Profile photo (`profileImage` in `data/site.ts`)
-- Interview Phillip for the limited-budget post, then publish it (remove `draft: true`)
 - Optional: custom domain (the current Vercel alias has a random suffix); then update `NEXT_PUBLIC_SITE_URL`
