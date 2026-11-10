@@ -6,5 +6,6 @@
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
   "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "portfolio" }],
-  "images": { "binding": "IMAGES" }
+  "images": { "binding": "IMAGES" },
+  "vars": { "CONTACT_TO_EMAIL": "phillipcole123@gmail.com" }
 }

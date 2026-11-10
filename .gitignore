@@ -48,3 +48,4 @@ next-env.d.ts
 .dev.vars
 
 lib/posts.generated.json
+!.env.production
