@@ -71,14 +71,21 @@ components/     layout, navigation, sections, projects, forms, ui
 
 Screenshots: desktop 1440×900 PNG, phone portrait, in `public/images/projects/<slug>/`, listed in the project's `screenshots` array.
 
+## Hosting (Cloudflare Workers)
+
+- Live at https://portfolio.phillipcole123.workers.dev (Worker `portfolio`). Cloudflare Workers Builds builds `main` on every push (build command `npm run cf:build`, deploy command `npx wrangler deploy`). Vercel was removed on 9 Nov 2026 because its Hobby plan bans commercial use and this site advertises services.
+- Adapter: `@opennextjs/cloudflare`, config in `wrangler.jsonc` and `open-next.config.ts`. The `images` binding in `wrangler.jsonc` is what makes `next/image` resize; without it images are served at full size and mobile Lighthouse drops below 90.
+- Variables (Cloudflare dashboard, Worker settings): `NEXT_PUBLIC_SITE_URL` must be a **build** variable (Next.js bakes it in), and must be unset or a real URL, never empty (an empty value breaks `new URL()` in `app/layout.tsx`). `CONTACT_TO_EMAIL` and `RESEND_API_KEY` are runtime variables; the key is a secret. Without them the contact form answers 503 and shows its fallback.
+- Local checks: `npm run cf:build`, then `npx wrangler dev --port 8787` to test on the Workers runtime (needs `workerd`; run `node node_modules/workerd/install.js` once if npm blocked its install script).
+
 ## Status (9 Nov 2026)
 
-Done: all pages (home, about, projects with filter, five case studies, services with inquiry form, blog, contact), theme toggle, mobile nav, SEO metadata, Open Graph image, sitemap, robots, 404, two demo sites. All project screenshots. `data/site.ts` has email, LinkedIn, location ("Jamaica") and resume (`public/resume/phillip-cole-resume.pdf`, phone and email removed). About copy, case studies and budget ranges approved. Visual check (desktop/phone, both themes) and Lighthouse (all 96+) done. Git repo `philquake/Portfolio` (private, `main`). Live on Vercel (project `portfolio`, scope `cole-world`, git auto-deploy on push): https://portfolio-gilt-kappa-1e5wjyy1gv.vercel.app. Env vars set in Vercel: `NEXT_PUBLIC_SITE_URL`, `CONTACT_TO_EMAIL`. Build, lint and tests pass.
-
-Blog: all three posts are published (approved by Phillip, 9 Nov 2026). The limited-budget post quotes free-tier limits from provider docs, last checked 9 Nov 2026; re-check them before editing.
+Done: all pages (home, about, projects with filter, five case studies, services with inquiry form, blog, contact), theme toggle, mobile nav, SEO metadata, Open Graph image, sitemap, robots, 404, two demo sites. All project screenshots. `data/site.ts` has email, LinkedIn, location ("Jamaica") and resume (`public/resume/phillip-cole-resume.pdf`, phone and email removed). About copy, case studies and budget ranges approved. All three blog posts published (the limited-budget post quotes free-tier limits from provider docs, last checked 9 Nov 2026; re-check before editing). Git repo `philquake/Portfolio` (private, `main`). Deployed on Cloudflare; live Lighthouse: performance 94 to 100, accessibility and SEO 100, best practices 96. Build, lint and tests pass.
 
 Not done:
 
-- `RESEND_API_KEY` in Vercel (add with `vercel env add RESEND_API_KEY production`), then redeploy and test the live contact form
-- Profile photo (`profileImage` in `data/site.ts`)
-- Optional: custom domain (the current Vercel alias has a random suffix); then update `NEXT_PUBLIC_SITE_URL`
+- `NEXT_PUBLIC_SITE_URL` (build variable in Cloudflare): until set, the live sitemap lists `http://localhost:3000` URLs
+- `CONTACT_TO_EMAIL` (phillipcole123@gmail.com) and `RESEND_API_KEY` in Cloudflare, then test the live contact form
+- Profile photo (`profileImage` in `data/site.ts`; left blank on purpose for now)
+- Optional: custom domain; then update `NEXT_PUBLIC_SITE_URL`
+- Check Cloudflare's free allowance for image transformations
