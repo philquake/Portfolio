@@ -6,7 +6,7 @@ Personal developer portfolio. It has three jobs: show software projects, attract
 
 ## Stack
 
-- Next.js 16 (App Router, Turbopack, `cacheComponents` on), React 19, TypeScript
+- Next.js 16 (App Router, Turbopack), React 19, TypeScript. Hosted on Cloudflare Workers via `@opennextjs/cloudflare` (`cacheComponents` is OFF because it hangs on Workers)
 - Tailwind CSS v4 (theme tokens in `app/globals.css`, no `tailwind.config`)
 - `next-themes` (dark by default, class on `<html>`), `lucide-react` icons
 - `react-hook-form` + `zod` for forms, `gray-matter` + `marked` for the blog
@@ -56,7 +56,8 @@ components/     layout, navigation, sections, projects, forms, ui
 
 - This Next.js version differs from older ones. Read `node_modules/next/dist/docs/` before using an unfamiliar API.
 - Page files may only export Next's own fields (`metadata`, `generateStaticParams`, default). Other exports fail the build.
-- With `cacheComponents`, `generateStaticParams` must return at least one entry, so keep at least one file in `content/blog`.
+- Workers have no filesystem: blog Markdown is compiled to `lib/posts.generated.json` by `scripts/build-posts.mjs` (runs on `npm run dev` and `build`; gitignored). Never read files at request time. Keep at least one file in `content/blog`.
+- Do not turn `cacheComponents` back on: the Worker returns error 1101.
 - Do not write JSON config with Windows PowerShell `Set-Content -Encoding utf8`: it adds a byte-order mark that breaks the build. Use the Edit/Write tools.
 - `tsconfig.json` has `allowImportingTsExtensions` so the test can import `./validation.ts`.
 

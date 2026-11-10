@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "posts": "node scripts/build-posts.mjs",
+    "predev": "npm run posts",
     "dev": "next dev",
+    "prebuild": "npm run posts",
     "build": "next build",
     "cf:build": "opennextjs-cloudflare build",
     "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
