@@ -3,7 +3,6 @@ title: "Building a Personal Finance Application with Flutter and FastAPI"
 excerpt: "How Penny is put together: a Flutter client, a FastAPI backend and a server that only stores encrypted records."
 category: "Project Development"
 date: "2026-11-09"
-draft: true
 # cover: "/images/blog/penny-cover.png"
 ---
 
