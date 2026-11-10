@@ -72,14 +72,13 @@ Screenshots: desktop 1440×900 PNG, phone portrait, in `public/images/projects/<
 
 ## Status (9 Nov 2026)
 
-Done: all pages (home, about, projects with filter, five case studies, services with inquiry form, blog, contact), theme toggle, mobile nav, SEO metadata, Open Graph image, sitemap, robots, 404, two demo sites. Build, lint and tests pass.
+Done: all pages (home, about, projects with filter, five case studies, services with inquiry form, blog, contact), theme toggle, mobile nav, SEO metadata, Open Graph image, sitemap, robots, 404, two demo sites. All project screenshots. `data/site.ts` has email, LinkedIn, location ("Jamaica") and resume (`public/resume/phillip-cole-resume.pdf`, phone and email removed). About copy, case studies and budget ranges approved. Visual check (desktop/phone, both themes) and Lighthouse (all 96+) done. Git repo `philquake/Portfolio` (private, `main`). Live on Vercel (project `portfolio`, scope `cole-world`, git auto-deploy on push): https://portfolio-gilt-kappa-1e5wjyy1gv.vercel.app. Env vars set in Vercel: `NEXT_PUBLIC_SITE_URL`, `CONTACT_TO_EMAIL`. Build, lint and tests pass.
+
+Blog: all three posts are still `draft: true` (Draft label, noindex, not in sitemap). Penny post drafted from Phillip's interview answers, awaiting approval. Django platform post drafted from the case study; HTML comments mark where Phillip's own input is needed. Limited-budget post is still an outline.
 
 Not done:
 
-- Screenshots: Pokédatabase Pokédex list and detail page; both demo sites
-- `data/site.ts`: email, LinkedIn, resume PDF, profile photo, location
-- Review of drafted copy: About page, case-study "lessons learned", budget ranges
-- Blog articles are outlines only
-- Resend keys for the contact form (`.env.example`)
-- Git repository, GitHub push, deployment (Vercel or Cloudflare via OpenNext)
-- Lighthouse run; visual check of homepage project cards and light theme
+- `RESEND_API_KEY` in Vercel (add with `vercel env add RESEND_API_KEY production`), then redeploy and test the live contact form
+- Profile photo (`profileImage` in `data/site.ts`)
+- Approve and publish blog posts (remove `draft: true`); interview Phillip for the Django and limited-budget posts
+- Optional: custom domain (the current Vercel alias has a random suffix); then update `NEXT_PUBLIC_SITE_URL`
