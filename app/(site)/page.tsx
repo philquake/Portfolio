@@ -1,15 +1,5 @@
-import { Hero } from "@/components/sections/Hero";
-import { AboutPreview, ContactCta, FeaturedProjects, ServicesOverview, TechOverview } from "@/components/sections/HomeSections";
+import { Bento } from "@/components/sections/Bento";
 
 export default function HomePage() {
-  return (
-    <>
-      <Hero />
-      <TechOverview />
-      <FeaturedProjects />
-      <ServicesOverview />
-      <AboutPreview />
-      <ContactCta />
-    </>
-  );
+  return <Bento />;
 }
