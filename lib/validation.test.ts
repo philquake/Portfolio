@@ -14,6 +14,11 @@ test("rejects a bad email and a short message", () => {
   assert.equal(messageSchema.safeParse({ ...valid, message: "hi" }).success, false);
 });
 
+test("accepts a tutoring enquiry and rejects an unknown kind", () => {
+  assert.equal(messageSchema.safeParse({ ...valid, enquiry: "tutoring" }).success, true);
+  assert.equal(messageSchema.safeParse({ ...valid, enquiry: "other" }).success, false);
+});
+
 test("rejects a filled honeypot", () => {
   assert.equal(messageSchema.safeParse({ ...valid, website: "http://spam" }).success, false);
 });

@@ -5,7 +5,7 @@ import { CheckCircle2, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { buttonClass } from "@/components/ui/Button";
-import { budgetRanges, projectTypes } from "@/data/services";
+import { budgetRanges, projectTypes, tutoring } from "@/data/services";
 import { site } from "@/data/site";
 import { type MessageInput, messageSchema } from "@/lib/validation";
 
@@ -34,14 +34,17 @@ function Fallback() {
   );
 }
 
-export function ContactForm({ variant = "contact" }: { variant?: "contact" | "inquiry" }) {
+export function ContactForm({ variant = "contact" }: { variant?: "contact" | "inquiry" | "tutoring" }) {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<MessageInput>({ resolver: zodResolver(messageSchema) });
+  } = useForm<MessageInput>({
+    resolver: zodResolver(messageSchema),
+    defaultValues: variant === "tutoring" ? { enquiry: "tutoring" } : undefined,
+  });
 
   async function onSubmit(data: MessageInput) {
     setStatus("idle");
@@ -140,9 +143,22 @@ export function ContactForm({ variant = "contact" }: { variant?: "contact" | "in
         </>
       )}
 
+      {variant === "tutoring" && (
+        <div>
+          <label htmlFor="tutoring-subject" className={label}>
+            What do you want help with?
+          </label>
+          <select id="tutoring-subject" className={field} {...register("projectType")}>
+            {tutoring.subjects.map((subject) => (
+              <option key={subject}>{subject}</option>
+            ))}
+          </select>
+        </div>
+      )}
+
       <div>
         <label htmlFor={`${variant}-message`} className={label}>
-          {variant === "inquiry" ? "Project description" : "Message"}
+          {variant === "inquiry" ? "Project description" : variant === "tutoring" ? "Your level and goals" : "Message"}
         </label>
         <textarea id={`${variant}-message`} rows={6} className={field} {...register("message")} {...invalid("message")} />
         {error("message")}
@@ -159,7 +175,7 @@ export function ContactForm({ variant = "contact" }: { variant?: "contact" | "in
 
       <button type="submit" disabled={isSubmitting} className={buttonClass("primary", "disabled:opacity-60")}>
         {isSubmitting && <Loader2 className="size-4 animate-spin" aria-hidden="true" />}
-        {isSubmitting ? "Sending…" : variant === "inquiry" ? "Send inquiry" : "Send message"}
+        {isSubmitting ? "Sending…" : variant === "inquiry" ? "Send inquiry" : variant === "tutoring" ? "Send enquiry" : "Send message"}
       </button>
     </form>
   );

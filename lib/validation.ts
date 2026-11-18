@@ -7,6 +7,7 @@ export const messageSchema = z.object({
   business: z.string().trim().max(150).optional(),
   projectType: z.string().trim().max(100).optional(),
   budget: z.string().trim().max(50).optional(),
+  enquiry: z.enum(["tutoring"]).optional(),
   message: z.string().trim().min(20, "Please write at least 20 characters").max(5000),
   // Honeypot: real visitors never see or fill this field.
   website: z.string().max(0).optional(),

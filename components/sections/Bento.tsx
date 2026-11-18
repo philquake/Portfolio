@@ -115,7 +115,7 @@ export function Bento() {
 
       <Card href="/services" className="md:col-span-3">
         <Label>Services</Label>
-        <h2 className="text-xl font-semibold tracking-tight">What I can build for you</h2>
+        <h2 className="text-xl font-semibold tracking-tight">What I can do for you</h2>
         <ul className="space-y-1.5 text-sm text-muted">
           {services.map((s) => (
             <li key={s.slug}>{s.title}</li>
