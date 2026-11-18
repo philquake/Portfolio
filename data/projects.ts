@@ -33,6 +33,8 @@ export const projects: Project[] = [
       img("penny", "04_debts.png", "Penny debt tracking screen"),
       img("penny", "05_payoff_planner.png", "Penny debt payoff planner"),
       img("penny", "06_reports.png", "Penny monthly report screen"),
+      img("penny", "07_reports_advanced.png", "Penny advanced reports screen"),
+      img("penny", "08_savings_vs_debt.png", "Penny savings versus debt comparison"),
     ],
     featured: true,
     caseStudy: {
@@ -104,6 +106,9 @@ export const projects: Project[] = [
       img("cxc-platform", "02-course.png", "CXC Platform course page with units and lessons"),
       img("cxc-platform", "03-lesson.png", "CXC Platform lesson reader"),
       img("cxc-platform", "04-tools.png", "CXC Platform binary converter tool"),
+      img("cxc-platform", "05-quizzes.png", "CXC Platform practice quizzes page"),
+      img("cxc-platform", "06-sql-practice.png", "CXC Platform SQL practice sandbox"),
+      img("cxc-platform", "07-spreadsheet.png", "CXC Platform spreadsheet formula practice"),
     ],
     sourceUrl: "https://github.com/philquake/cxc_platform",
     featured: true,
@@ -172,6 +177,9 @@ export const projects: Project[] = [
       img("pokedatabase", "01-home.png", "Pokédatabase home page with a featured Pokémon and search"),
       img("pokedatabase", "02-pokedex.png", "Pokédatabase Pokédex listing with type badges"),
       img("pokedatabase", "03-detail.png", "Pokédatabase detail page for Bulbasaur with base stats chart and evolution chain"),
+      img("pokedatabase", "04-types.png", "Pokédatabase types page"),
+      img("pokedatabase", "05-moves.png", "Pokédatabase moves table with filters"),
+      img("pokedatabase", "06-rankings.png", "Pokédatabase competitive rankings by base stats"),
     ],
     sourceUrl: "https://github.com/philquake/PokeDatabase",
     featured: true,
@@ -232,7 +240,10 @@ export const projects: Project[] = [
     stack: ["Next.js", "TypeScript", "Tailwind CSS"],
     status: "Demonstration (fictional business)",
     device: "desktop",
-    screenshots: [img("saltmarsh-coffee", "01-home.png", "Saltmarsh Coffee demonstration site: hero with the tagline Good coffee, made slowly")],
+    screenshots: [
+      img("saltmarsh-coffee", "01-home.png", "Saltmarsh Coffee demonstration site: hero with the tagline Good coffee, made slowly"),
+      img("saltmarsh-coffee", "02-menu-hours.png", "Saltmarsh Coffee demonstration site menu, opening hours and address"),
+    ],
     liveUrl: "/demos/saltmarsh-coffee",
     featured: true,
     caseStudy: {
@@ -272,7 +283,11 @@ export const projects: Project[] = [
     stack: ["Next.js", "TypeScript", "Tailwind CSS"],
     status: "Demonstration (fictional business)",
     device: "desktop",
-    screenshots: [img("marlow-home-repairs", "01-home.png", "Marlow Home Repairs demonstration site home page")],
+    screenshots: [
+      img("marlow-home-repairs", "01-home.png", "Marlow Home Repairs demonstration site home page"),
+      img("marlow-home-repairs", "02-services.png", "Marlow Home Repairs demonstration site services grid"),
+      img("marlow-home-repairs", "03-quote.png", "Marlow Home Repairs demonstration site process steps and quote request"),
+    ],
     liveUrl: "/demos/marlow-home-repairs",
     featured: true,
     caseStudy: {

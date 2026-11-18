@@ -1,9 +1,9 @@
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
+import DepthCarousel from "@/components/ui/DepthCarousel";
 import { ProjectCover } from "@/components/projects/ProjectCard";
 import { ContactCta } from "@/components/sections/HomeSections";
 import { ButtonLink } from "@/components/ui/Button";
@@ -121,18 +121,20 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
         {project.screenshots.length > 0 && (
           <section className="border-t border-line py-10">
             <h2 className="font-mono text-sm text-accent">Screenshots</h2>
-            <div className={cn("mt-8 grid gap-6", phone ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-6" : "md:grid-cols-2")}>
-              {project.screenshots.map((shot) => (
-                <Image
-                  key={shot.src}
-                  src={shot.src}
-                  alt={shot.alt}
-                  width={phone ? 1080 : 1440}
-                  height={phone ? 2160 : 900}
-                  sizes={phone ? "(min-width: 1024px) 170px, 45vw" : "(min-width: 768px) 560px, 100vw"}
-                  className="h-auto w-full rounded-md border border-line"
-                />
-              ))}
+            <div className={cn("mt-8 overflow-hidden rounded-xl border border-line bg-surface", phone ? "h-[480px]" : "h-[440px]")}>
+              <DepthCarousel
+                label={`${project.name} screenshots`}
+                items={project.screenshots.map((s) => ({ image: s.src, alt: s.alt }))}
+                cardWidth={phone ? 200 : 520}
+                cardHeight={phone ? 400 : 325}
+                radius={10}
+                spread={phone ? 70 : 90}
+                depth={200}
+                tilt={20}
+                visibleCards={3}
+                blur={4}
+                loop
+              />
             </div>
           </section>
         )}
