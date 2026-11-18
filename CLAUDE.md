@@ -47,7 +47,7 @@ components/     layout, navigation, sections, projects, forms, ui
 
 - **Never invent facts about Phillip.** No employment history, qualifications, years of experience, testimonials, statistics, pricing or live URLs. Project facts come from each project's own README.
 - **Content goes in `data/` or `content/`, not in page components.** A blank `""` in `data/site.ts` hides the matching link or button everywhere; keep that behaviour.
-- **Server Components by default.** The only client components are `Nav`, `ThemeToggle`, `ProjectFilter` and `ContactForm`.
+- **Server Components by default.** The only client components are `Nav`, `ThemeToggle`, `ProjectFilter`, `ContactForm` and the React Bits effects `SplitFlapText`, `GlareHover` and `DepthCarousel` (in `components/ui/`; `DepthCarousel` needs `gsap`).
 - **Design:** dark-first, near-black background, one teal accent, thin borders, small radius (`rounded-md`), Geist and Geist Mono. Use the tokens (`bg-bg`, `bg-surface`, `border-line`, `text-fg`, `text-muted`, `text-accent`), not raw colours. The demo sites are the one exception: they use fixed hex colours so they ignore the theme.
 - **Drafts:** blog posts with `draft: true` show a "Draft" label and are kept out of the sitemap and search engines.
 - Demo businesses (Saltmarsh Coffee, Marlow Home Repairs) are fictional and must stay labelled as demonstrations.
@@ -80,7 +80,7 @@ Screenshots: desktop 1440×900 PNG, phone portrait, in `public/images/projects/<
 
 ## Status (9 Nov 2026)
 
-Done: all pages (home, about, projects with filter, five case studies, services with inquiry form, blog, contact), theme toggle, mobile nav, SEO metadata, Open Graph image, sitemap, robots, 404, two demo sites. All project screenshots. `data/site.ts` has email, LinkedIn, location ("Jamaica") and resume (`public/resume/phillip-cole-resume.pdf`, phone and email removed). About copy, case studies and budget ranges approved. All three blog posts published (the limited-budget post quotes free-tier limits from provider docs, last checked 9 Nov 2026; re-check before editing). Git repo `philquake/Portfolio` (private, `main`). Deployed on Cloudflare; live contact form tested end to end (test email arrived 10 Nov 2026); live Lighthouse: performance 94 to 100, accessibility and SEO 100, best practices 96. Build, lint and tests pass.
+Done: all pages (home as a bento grid, about, projects with filter, five case studies, services with inquiry form, blog, contact), theme toggle, mobile nav, SEO metadata, Open Graph image, sitemap, robots, 404, two demo sites. All project screenshots. `data/site.ts` has email, LinkedIn, location ("Jamaica") and resume (`public/resume/phillip-cole-resume.pdf`, phone and email removed). About copy, case studies and budget ranges approved. All three blog posts published (the limited-budget post quotes free-tier limits from provider docs, last checked 9 Nov 2026; re-check before editing). Git repo `philquake/Portfolio` (private, `main`). Deployed on Cloudflare; live contact form tested end to end (test email arrived 10 Nov 2026); live Lighthouse: performance 94 to 100, accessibility and SEO 100, best practices 96. Build, lint and tests pass.
 
 Open items: none. Phillip closed the remaining items as complete for the current build on 10 Nov 2026:
 

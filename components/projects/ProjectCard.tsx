@@ -1,6 +1,7 @@
 import { ArrowRight, ImageIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import GlareHover from "@/components/ui/GlareHover";
 import { ButtonLink } from "@/components/ui/Button";
 import { GitHubIcon } from "@/components/ui/icons";
 import { Tag } from "@/components/ui/Section";
@@ -59,7 +60,9 @@ export function ProjectCard({ project, wide }: { project: Project; wide?: boolea
   return (
     <article className={cn("group flex flex-col gap-6", wide && "md:col-span-2 md:grid md:grid-cols-2 md:items-center md:gap-10")}>
       <Link href={href} tabIndex={-1} aria-hidden="true" className="block transition-opacity group-hover:opacity-90">
-        <ProjectCover project={project} priority={wide} />
+        <GlareHover width="100%" borderRadius="6px" glareColor="var(--accent)" glareOpacity={0.35}>
+          <ProjectCover project={project} priority={wide} />
+        </GlareHover>
       </Link>
       <div>
         <p className="font-mono text-xs text-accent">{project.categories.join(" · ")}</p>
