@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { ContactCta } from "@/components/sections/HomeSections";
 import { PageHeader, Section } from "@/components/ui/Section";
 import { site } from "@/data/site";
@@ -47,6 +48,13 @@ export default function AboutPage() {
             <p>
               I take projects from the first idea through to deployment: planning the features, designing the database,
               building the backend and API, creating the interface and putting it live.
+            </p>
+            <p>
+              I also tutor IT and CAPE Computer Science online. You can find the details on the{" "}
+              <Link href="/tutoring" className="text-accent underline-offset-4 hover:underline">
+                tutoring page
+              </Link>
+              .
             </p>
             <p>
               Penny, a personal finance app, pairs a Flutter client with a FastAPI backend and end-to-end encryption.

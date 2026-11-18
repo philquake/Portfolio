@@ -12,12 +12,12 @@ export async function POST(request: Request) {
   const { RESEND_API_KEY, CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL } = process.env;
   if (!RESEND_API_KEY || !CONTACT_TO_EMAIL) return Response.json({ error: "not_configured" }, { status: 503 });
 
-  const { name, email, business, projectType, budget, message } = parsed.data;
+  const { name, email, business, projectType, budget, enquiry, message } = parsed.data;
   const lines = [
     `Name: ${name}`,
     `Email: ${email}`,
     business ? `Business: ${business}` : null,
-    projectType ? `Project type: ${projectType}` : null,
+    projectType ? `${enquiry === "tutoring" ? "Subject" : "Project type"}: ${projectType}` : null,
     budget ? `Budget: ${budget}` : null,
     "",
     message,
@@ -31,7 +31,7 @@ export async function POST(request: Request) {
       from: CONTACT_FROM_EMAIL ?? `${site.name} Portfolio <onboarding@resend.dev>`,
       to: CONTACT_TO_EMAIL,
       reply_to: email,
-      subject: `${projectType ? "Project inquiry" : "Message"} from ${name}`,
+      subject: `${enquiry === "tutoring" ? "Tutoring enquiry" : projectType ? "Project inquiry" : "Message"} from ${name}`,
       text: lines.join("\n"),
     }),
   });

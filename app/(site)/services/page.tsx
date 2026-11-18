@@ -10,7 +10,7 @@ import { cn, container } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Business websites, custom web applications, backend and API development, Flutter mobile apps, and automation and AI integration.",
+    "Business websites, custom web applications, backend and API development, Flutter mobile apps, automation and AI integration, and online IT and CAPE Computer Science tutoring.",
   alternates: { canonical: "/services" },
 };
 
@@ -50,8 +50,8 @@ export default function ServicesPage() {
                 <Icon className="size-6 text-accent" aria-hidden="true" />
                 <h2 className="mt-4 text-2xl font-semibold tracking-tight">{service.title}</h2>
                 <p className="mt-3 text-muted">{service.description}</p>
-                <ButtonLink href="#inquiry" variant="secondary" className="mt-6">
-                  Ask about this <ArrowRight className="size-4" aria-hidden="true" />
+                <ButtonLink href={service.href ?? "#inquiry"} variant="secondary" className="mt-6">
+                  {service.href ? "See lesson details" : "Ask about this"} <ArrowRight className="size-4" aria-hidden="true" />
                 </ButtonLink>
               </div>
               <div className="grid gap-8 sm:grid-cols-3">

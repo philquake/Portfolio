@@ -43,7 +43,8 @@ export interface SkillGroup {
 
 export interface Service {
   slug: string;
-  icon: "globe" | "layout" | "server" | "phone" | "bot";
+  href?: string;
+  icon: "globe" | "layout" | "server" | "phone" | "bot" | "book";
   title: string;
   summary: string;
   includes: string[];

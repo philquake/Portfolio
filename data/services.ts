@@ -100,7 +100,53 @@ export const services: Service[] = [
       "Handling for errors and failed runs",
     ],
   },
+  {
+    slug: "tutoring",
+    icon: "book",
+    href: "/tutoring",
+    title: "IT and CAPE Computer Science Tutoring",
+    summary: "Online lessons that turn confusing tech into skills you can use.",
+    includes: [
+      "IT: programming, web development, databases and SQL, spreadsheets",
+      "CAPE Computer Science: Unit 1 and Unit 2",
+      "School-Based Assessment (SBA) and Internal Assessment (IA) help",
+      "Past-paper practice and exam technique",
+    ],
+    description:
+      "One-on-one and small-group online lessons for students and adults. I give clear explanations and worked examples, and I help with the projects you are marked on, so you understand the work as well as finish it.",
+    applications: [
+      "Learning programming or web development from scratch",
+      "Preparing for CAPE Computer Science, Unit 1 and Unit 2",
+      "Planning and coding an SBA or Internal Assessment project",
+    ],
+    deliverables: [
+      "Online lessons on a schedule that suits you",
+      "Worked examples and past-paper walkthroughs",
+      "Feedback on your code and project work",
+      "Guidance on what to practise between lessons",
+    ],
+  },
 ];
+
+export const tutoring = {
+  it: [
+    "Programming fundamentals (Python, JavaScript, Java)",
+    "Web development: HTML, CSS and JavaScript",
+    "Databases and SQL",
+    "Spreadsheets and word processing",
+    "School-Based Assessment (SBA) and project help",
+    "Computer hardware, networks and security basics",
+  ],
+  cape: [
+    "Problem solving and algorithm design",
+    "Programming and data structures",
+    "Databases, SQL and data modelling",
+    "Internal Assessment (IA) planning and coding",
+    "Past-paper walkthroughs and mark-scheme technique",
+    "Trace tables, flowcharts and pseudocode",
+  ],
+  subjects: ["IT tutoring", "CAPE Computer Science tutoring", "Both"],
+};
 
 export const process = [
   { title: "Initial consultation", text: "We talk through what you need, who it is for and what a good result looks like." },

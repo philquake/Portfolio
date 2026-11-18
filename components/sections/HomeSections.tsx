@@ -1,4 +1,4 @@
-import { ArrowRight, Bot, Globe, LayoutDashboard, Server, Smartphone } from "lucide-react";
+import { ArrowRight, Bot, GraduationCap, Globe, LayoutDashboard, Server, Smartphone } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
 import { site } from "@/data/site";
 import { container } from "@/lib/utils";
@@ -10,6 +10,7 @@ export const serviceIcons: Record<Service["icon"], typeof Globe> = {
   server: Server,
   phone: Smartphone,
   bot: Bot,
+  book: GraduationCap,
 };
 
 export function ContactCta() {
